@@ -52,6 +52,58 @@ async function run() {
       .db("golamrabby")
       .collection("EventBookingInfo");
 
+    // ******************** making all APIs (POST Method) **************************** //
+
+    // fun with fan modal data post into database api
+    app.post("/api/fun-with-fan-reg", async (req, res) => {
+      const FWFRegInfo = req.body;
+      const result = await FunWithFanRegCollection.insertOne(FWFRegInfo);
+      res.send(result);
+    });
+
+    // share your feeling and problem modal data post into database api
+    app.post("/api/share-your-feeling", async (req, res) => {
+      const ShareFP = req.body;
+      const result = await SharingFeelingProblemCollection.insertOne(ShareFP);
+      res.send(result);
+    });
+
+    // fun with fan modal data post into database api
+    app.post("/api/course-enrollment", async (req, res) => {
+      const CourseEnrollmentInfo = req.body;
+      const result = await CourseEnrolmentCollection.insertOne(
+        CourseEnrollmentInfo
+      );
+      res.send(result);
+    });
+
+    // mentorship booking modal data post into database api
+    app.post("/api/mentorship-booking", async (req, res) => {
+      const MentorshipBookingInfo = req.body;
+      const result = await MentorshipRegCollection.insertOne(
+        MentorshipBookingInfo
+      );
+      res.send(result);
+    });
+
+    // mock test schedule modal data post into database api
+    app.post("/api/mock-test-schedule", async (req, res) => {
+      const MockTestScheduleInfo = req.body;
+      const result = await MockTestScheduleCollection.insertOne(
+        MockTestScheduleInfo
+      );
+      res.send(result);
+    });
+
+    // newsletter subscription modal data post into database api
+    app.post("/api/newsletter-subscription", async (req, res) => {
+      const NewsLetterSubscriptionEmail = req.body;
+      const result = await NewsLetterSubCollection.insertOne(
+        NewsLetterSubscriptionEmail
+      );
+      res.send(result);
+    });
+
     await client.connect();
   } finally {
   }
